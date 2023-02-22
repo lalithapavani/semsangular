@@ -1,0 +1,30 @@
+<!-- <div *ngIf="user">
+    <h1>Hello user</h1>
+  </div> -->
+  
+  <!-- <div *ngIf="admin">
+    <h1>Hello admin</h1>
+    <a routerLink=""> </a>
+    <a routerLink="">  </a>
+    <a routerLink="">  </a>
+    <a routerLink="">  </a>
+    <a routerLink="">  </a>
+    
+
+  </div> -->
+
+  <h1 class="text-center" style="padding: 2%;">Participations</h1>
+
+<div class="text-center d-block">
+<button type="button" routerLink="viewparticipations" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Participation List</button>
+&nbsp;
+<button type="button" *ngIf="role=='user'" routerLink="addparticipation" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Add Participation</button>
+&nbsp;
+<button type="button" routerLink="approvedparticipations" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 11%;">Approved Participations</button>
+&nbsp;
+<button type="button" routerLink="pendingparticipations" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Pending Participations</button>
+&nbsp;
+<button type="button" routerLink="declinedparticipations" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Declined Participations</button>
+</div>
+
+<router-outlet></router-outlet>

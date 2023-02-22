@@ -1,0 +1,84 @@
+<div class="mx-auto" style="width: 400px;">
+      <h2 class="text-center">Edit Event</h2>
+      
+      <form #prform="ngForm" (ngSubmit)="Update(prform.value)">
+      
+      
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <label class="form-label" for="eventId">Event Id</label>
+        <input type="text" name="eventId" readonly [ngModel]="e?.eventId" #eventId=ngModel minlength="5" maxlength="40" class="form-control" required />
+
+        
+      </div>
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <label class="form-label" for="eventName">Event Name</label>
+        <input type="text" name="eventName" [ngModel]="e?.eventName" #eventName=ngModel minlength="5" maxlength="40" class="form-control" required />
+
+        <span *ngIf="eventName.errors?.minlength">minimum length should be above 5</span>
+        <span *ngIf="eventName.errors?.maxlength">minimum length should be below 40</span>
+      </div>
+    
+      
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <label class="form-label" for="eventDate">Event Date</label>
+        <input type="date" id="eventDate" name="eventDate" min="{{minDate}}" max="{{maxDate}}" [ngModel]="e?.eventDate" #eventDate=ngModel class="form-control" required/>
+      </div>
+      
+      
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="noofSlots">No. of slots</label>
+          <input type="number" name="noofSlots" [ngModel]="e?.noofSlots" #noofSlots=ngModel class="form-control"
+          max="10" required />
+
+          
+          <span *ngIf="noofSlots.errors?.max">maximum slots should be below 10</span>
+
+          <!-- <span class="invalid-feedback" *ngIf="noofSlots.touched && noofSlots.invalid"></span> -->
+
+      </div>
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <!-- <label class="form-label" for="username">Sports Name</label>
+          <input type="text" name="sportsName" [(ngModel)]="e.sportsName" #sportsName=ngModel maxlength="20" class="form-control" required /> -->
+
+          <!-- <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;"> -->
+
+            <label class="form-label" for="sportsName">Sports Name</label>
+
+           <select class="form-select" aria-label="Default select example"  name="sportsName" #sportsName=ngModel [ngModel]="e?.sportsName" required>
+  
+              <option disabled selected value>select the sport name</option>
+              <option *ngFor="let s of sportsname" [ngValue]="s.sportsName">{{s.sportsName}}</option>
+            </select>
+        <!-- </div> -->
+          <!-- <span class="invalid-feedback" *ngIf="sportsName.touched && sportsName.invalid"> Sports name should be minimum of 7 characters</span> -->
+
+          <h4 *ngIf="nodata" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to load sports name</h4>
+      </div>
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        
+
+          <label class="form-label" for="status">Status</label>
+
+        <select class="form-select" aria-label="Default select example"  name="status" #status=ngModel [ngModel]="e?.status" required>
+
+          <option disabled selected value>select the sport name</option>
+          <option *ngFor="let s of eventStatus" [ngValue]="s">{{s}}</option>
+          
+        </select>
+      
+
+        
+    </div>
+
+      <div class="text-center">
+      <button type="button" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!prform.valid" style="background-color: #3b71ca; width: 40%;">Edit</button>
+      
+      <h3 *ngIf="message!=null">{{message}}</h3>
+      <h3 *ngIf="sporterror" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to sport name</h3>
+      <h3 *ngIf="nodata" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to fetch event data</h3>
+      <h3 *ngIf="updateerror" class="text-center mx-auto" style="width: 20%; padding: 1%;">Failed to update event</h3>
+      </div>

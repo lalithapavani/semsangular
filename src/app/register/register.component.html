@@ -1,0 +1,72 @@
+<!--for spacing-->
+
+<div class="row mb-4">
+</div>
+<div class="row mb-4">
+</div>
+<div class="row mb-4">
+</div>
+<div class="row mb-4">
+</div>
+
+
+<div class="mx-auto" style="width: 400px;">
+    <h1 class="text-center">Register</h1>
+
+    <form #registerform="ngForm" (ngSubmit)="save(registerform.value)">
+      
+      <!-- Email input -->
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+
+        <label class="form-label" for="form2Example1">Username</label>
+        <input type="text" id="form2Example1" pattern="[a-zA-Z0-9]+" [(ngModel)]="s.username" name="username" #username="ngModel" class="form-control" minlength="5" maxlength="20" required />
+        
+        <span *ngIf="username.errors && username.errors.pattern">player name not valid</span>
+        <br>
+        
+        <span *ngIf="username.errors?.minlength">minimum length should be above 5</span>
+        <span *ngIf="username.errors?.maxlength">minimum length should be below 20</span>
+
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <label class="form-label" for="form2Example2">Password</label>
+        <input type="password" id="form2Example2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]="s.password" name="password" #password="ngModel" class="form-control" minlength="8" required />
+        
+        <span *ngIf="password.errors && password.errors.pattern">password not valid</span>
+        <br>
+        <span *ngIf="password.errors?.minlength">minimum length should be above 8</span>
+        
+      </div>
+
+      <!-- 2 column grid layout for inline styling -->
+      <div class="row mb-4">
+        <!-- <div class="col d-flex justify-content-center">
+        </div> -->
+      </div>
+    
+      <!-- Submit button -->
+      <div class="text-center">
+        <input type="submit" value="Sign Up" [disabled]=!registerform.valid class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 40%;">
+
+        <h3 *ngIf="nodata">Error Occured: User Not Registered</h3>
+        <h3 *ngIf="message!=null">{{message}}</h3>
+      </div>
+      
+
+      <div class="row mb-4">
+      </div>
+      <div class="row mb-4">
+      </div>
+      <div class="row mb-4">
+      </div>
+      <div class="row mb-5">
+      </div>
+      
+      <!-- Login button -->
+      <!-- <div class="text-center">
+        <p>Already Registered? <a routerLink="login">Log in</a></p>
+      </div> -->
+    </form>
+</div>

@@ -1,0 +1,51 @@
+<h2 class="text-center" style="padding: 1%;">Pending Participations List</h2>
+
+<div class="row mb-4">
+</div>
+
+
+<div class="row justify-content-center">
+    <div class="col-7">
+      <table class="table table-responsive table-bordered text-center">
+        
+          <thead class="table-light">
+            <tr>
+              <!-- <th scope="col">#</th> -->
+              <th scope="col">Participation ID</th>
+              <th scope="col">Player ID</th>
+              <th scope="col">Player Name</th>
+              <th scope="col">Event ID</th>
+              <th scope="col">Event Name</th>
+              <th scope="col">Sports ID</th>
+              <th scope="col">Sports Name</th>
+              <th scope="col">Status</th>
+              <th scope="col">Comments</th>
+              
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let p of plist">
+              <!-- <th scope="row">1</th> -->
+              <td>{{p.participationId}}</td>
+            <td>{{p.playerId}}</td>
+            <td>{{p. playerName}}</td>
+            <td>{{p.eventId}}</td>
+            <td>{{p.eventName}}</td>
+            <td>{{p.sportsId}}</td>
+            <td>{{p.sportsName}}</td>
+            <td>{{p.status}}</td>
+            <td>{{p.comments}}</td>
+            
+            </tr>
+            
+          </tbody>
+        </table>
+        
+    </div>
+  </div>
+
+
+  <div class="row mb-4">
+  </div>
+  <div class="row mb-4">
+  </div>

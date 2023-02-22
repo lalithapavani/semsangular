@@ -1,0 +1,96 @@
+<h2 class="text-center" style="padding: 1%;">Event By Name</h2>
+
+<div class="row mb-4">
+</div>
+
+<!-- <form class="text-center">
+    <input type="text" name="eventName" [(ngModel)]="eventname" #eventName=ngModel required/>
+    &nbsp;
+    <button type="submit" (click)="getEventByName()" class="btn btn-primary">Submit</button>
+    
+    </form> -->
+
+    <div class="mx-auto text-center" style="width: 400px;">
+      <form>
+        <!-- <input type="text" name="sportName" [(ngModel)]="sportname" #sportName=ngModel required/>
+        &nbsp; -->
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <!-- <label class="form-label" for="age">Player Name</label> -->
+          <input type="text" name="eventName" maxlength="40" [(ngModel)]="eventname" #eventName=ngModel class="form-control" required/>
+        </div>
+        <button type="submit" (click)="getEventByName()" class="btn btn-primary">Search</button>
+      </form>
+    </div>
+
+    <h4 *ngIf="nodata" class="text-center mx-auto" style="width: 20%; padding: 1%;">No event name found</h4>
+
+    <div class="row mb-4">
+    </div>
+    <div class="row mb-4">
+    </div>
+    
+    <!-- <table class="table">
+            <thead>
+            <tr>
+                <th> Event ID </th>
+                <th> Event Date </th>
+                <th> Event Name</th>
+                <th> No of slots</th>
+                <th> SportsName</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{e.eventId}}</td>
+                <td>{{e.eventDate}}</td>
+                <td>{{e.eventName}}</td>
+                <td>{{e.noofSlots}}</td>
+                <td>{{e.sportsName}}</td>
+            </tr>
+            </tbody>
+        </table> -->
+
+        <div class="row justify-content-center">
+            <div class="col-5">
+              <table class="table table-responsive table-bordered text-center">
+                
+                  <thead class="table-light">
+                    <tr>
+                      <!-- <th scope="col">#</th> -->
+                      <th scope="col">Event ID</th>
+                      <th scope="col">Event Date</th>
+                      <th scope="col">Event Name</th>
+                      <th scope="col">No of slots</th>
+                      <th scope="col">Sports Name</th>
+                      <th scope="col">Status</th>
+                      <th scope="col" *ngIf="role=='admin'">Cancel Event</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-group-divider">
+                    <tr *ngFor="let e of elist">
+                      <!-- <th scope="row">1</th> -->
+                      <td>{{e.eventId}}</td>
+                <td>{{e.eventDate | date : 'yyyy-MM-dd'}}</td>
+                <td>{{e.eventName}}</td>
+                <td>{{e.noofSlots}}</td>
+                <td>{{e.sportsName}}</td>
+                <td>{{e.status}}</td>
+                <td *ngIf="role=='admin'">
+                    <!--<a routerLink="/edit/{{e.eventId}}">Edit |</a>-->
+                   <button type="button" class="btn btn-primary" (click)="clickMethod(e)">Cancel</button>
+                  </td>
+                
+                    </tr>
+                    
+                  </tbody>
+                </table>
+            </div>
+          </div>
+
+          <div class="row mb-4">
+        </div>
+        <div class="row mb-4">
+        </div>
+        <div class="row mb-4">
+        </div>
+        {{message}}

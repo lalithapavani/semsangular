@@ -1,0 +1,108 @@
+<h1 class="text-center" style="padding: 2%;">Sports</h1>
+
+<div class="text-center d-block">
+<button type="button" routerLink="viewsports" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Sports List</button>
+&nbsp;
+<button type="button" routerLink="viewsportbyname" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Sport by name</button>
+&nbsp;
+<button type="button" routerLink="viewevents" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Events List</button>
+&nbsp;
+<button type="button" routerLink="vieweventbyname" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Event by name</button>
+&nbsp;
+<button type="button" *ngIf="role=='admin'" routerLink="addevent" class="btn btn-primary btn-block mb-4" style="background-color: #3b71ca; width: 10%;">Add Event</button>
+</div>
+
+<!-- <div class="row justify-content-center">
+  <div class="col-4">
+    <table class="table table-responsive table-bordered text-center">
+      
+        <thead class="table-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Age</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>23</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>25</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>Page</td>
+            <td>24</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div> -->
+
+<!-- <div *ngIf="user">
+  <h1>Hello user</h1>
+</div>
+<div *ngIf="admin">
+  <h1>Hello Admin</h1>
+</div> -->
+
+ <!-- <nav class="navbar navbar-expand-sm bg-light">
+  <div class="container-fluid">
+     <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="viewsports">List of Sports</a>
+        
+
+      </li><br>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="viewsportbyname">Sport by name</a>
+        
+        
+      </li><br>
+    
+    <li class="nav-item">
+      <a class="nav-link" routerLink="viewevents">List of Events</a>
+      
+    </li><br>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="vieweventbyname">Event by name</a>
+      
+    </li><br>
+
+    <li class="nav-item">
+      
+      <a class="nav-link" routerLink="addevent">Add Events</a>
+    </li>
+    
+    </ul>
+  </div>
+</nav> -->
+<router-outlet></router-outlet>
+
+<!-- <div class="row mb-5">
+</div>
+<div class="row mb-5">
+</div>
+<div class="row mb-5">
+</div>
+<div class="row mb-5">
+</div>
+<div class="row mb-5">
+</div>
+<div class="row mb-5">
+</div>
+<div class="row mb-5">
+</div>
+<div class="row mb-5">
+</div> -->

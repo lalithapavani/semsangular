@@ -1,0 +1,96 @@
+<!-- <h2 class="text-center" style="padding: 1%;">Add Player</h2> -->
+
+<div class="row mb-4">
+</div>
+
+
+    <!-- {{prform.value|json}} -->
+
+
+
+
+
+
+
+    <div class="mx-auto" style="width: 400px;">
+        <h2 class="text-center">Add Player</h2>
+      <form #prform="ngForm" (ngSubmit)="saveplayer(prform.value)">
+        
+        
+        
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="playerName">Player Name</label>
+          <input type="text" name="playerName" pattern="[a-zA-Z\s]*" [(ngModel)]="p.playerName" #playerName=ngModel minlength="5" maxlength="40" class="form-control" required />
+          
+          <span *ngIf="playerName.errors && playerName.errors.pattern">player name not valid</span>
+          
+          <span *ngIf="playerName.errors?.minlength">minimum length should be above 5</span>
+          <!-- <span *ngIf="playerName.errors?.maxlength">minimum length should be below 40</span> -->
+        </div>
+      
+        
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="age">Age</label>
+          <input type="number" name="age" [(ngModel)]="p.age" #age=ngModel class="form-control"
+          min="5" max="50" required/>
+
+          <span *ngIf="age.errors?.min">min age should be above 5</span>
+          <span *ngIf="age.errors?.max">max age should be below 51</span>
+        </div>
+
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="contactNumber">Contact Number</label>
+            <input type="text" name="contactNumber" pattern="[6789][0-9]{9}" [(ngModel)]="p.contactNumber" #contactNumber=ngModel minlength="10"
+            maxlength="10" class="form-control" required />
+
+            <span *ngIf="contactNumber.errors && contactNumber.errors.pattern">Phone number not valid</span>
+            
+            
+        </div>
+
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="email">Email</label>
+
+            <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="p.email" #email=ngModel class="form-control"
+            maxlength="30" required />
+            
+            
+            <!-- <span  *ngIf="email.errors && email.errors.required">Email is required</span> -->
+            <span *ngIf="email.errors && email.errors.pattern">Email not valid</span>
+
+        </div>
+
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="gender">Gender</label>
+            <!-- <input type="text" name="gender" [(ngModel)]="p.gender" #pname=ngModel class="form-control"
+            max="6" required /> -->
+            <select class="form-select" aria-label="Default select example"  name="gender" #gender=ngModel [ngModel]="p?.gender" required>
+  
+              <option disabled selected value>select your gender</option>
+              <option *ngFor="let g of Gender" [ngValue]="g">{{g}}</option>
+              
+            </select>
+        </div>
+
+        <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+            <label class="form-label" for="username">Sports Name</label>
+            <!-- <input type="text" name="sportsName" [(ngModel)]="p.sportsName" #pname=ngModel
+            maxlength="20" class="form-control" required /> -->
+
+
+            <select class="form-select" aria-label="Default select example"  name="sportsName" #sportsName=ngModel [ngModel]="p?.sportsName" required>
+  
+              <option disabled selected value>select the sport name</option>
+              <option *ngFor="let s of sportsname" [ngValue]="s.sportsName">{{s.sportsName}}</option>
+              
+            </select>
+            
+        </div>
+        
+        <div class="text-center">
+        <button type="button" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!prform.valid" style="background-color: #3b71ca; width: 40%;">Add</button>
+
+        <h3 *ngIf="nodata">Error Occured: Player not added</h3>
+        <h3 *ngIf="sporterror">Failed to load sports name</h3>
+        <h3 *ngIf="message!=null">{{message}}</h3>
+        </div>

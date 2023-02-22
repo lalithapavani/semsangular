@@ -1,0 +1,95 @@
+<!-- <h2 class="text-center" style="padding: 1%;">Add Participation</h2> -->
+
+<div class="row mb-4">
+</div>
+
+<!-- <div class="text-center">
+    <form #prform="ngForm" (ngSubmit)="saveparticipation(prform.value)" class="was-validated">
+    
+        Enter playerId:
+        <input type="number" name="playerId" [(ngModel)]="p.playerId" #playerId=ngModel required/><br/><br/>
+        
+    
+        Enter Player Name:
+        <input type="text" name="playerName" [(ngModel)]="p.playerName" #playerName=ngModel required/><br/><br/>
+    
+        Enter Event Id:
+        <input type="number" name="eventId" [(ngModel)]="p.eventId" #eventId=ngModel required/><br/><br/>
+    
+        Enter Event Name:
+        <input type="text" name="eventName" [(ngModel)]="p.eventName" #eventName=ngModel required/><br/><br/>
+    
+        Enter Sports Id:
+        <input type="number" name="sportsId" [(ngModel)]="p.sportsId" #sportsId=ngModel required/><br/><br/>
+    
+        Enter Sports Name:
+        <input type="text" name="sportsName" [(ngModel)]="p.sportsName" #sportsName=ngModel required/><br/><br/>
+        
+        <div class="col-auto">
+            <button type="submit" [disabled]=!prform.valid click="save()"  class="btn btn-primary">Submit</button>
+            &nbsp;
+            <button type="reset" class="btn btn-primary"> Clear </button>
+        </div>
+
+        
+        <br/><br/>
+    </form>
+    <h4 *ngIf="message!=null">{{message}} </h4>
+    </div> -->
+
+
+
+
+
+
+    <div class="mx-auto" style="width: 400px;">
+      <h2 class="text-center">Add Participation</h2>
+    <form #prform="ngForm" (ngSubmit)="saveparticipation(prform.value)">
+      
+      <div class="row mb-4">
+      </div>
+      
+      
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <label class="form-label" for="playerName">Player Id</label>
+        <input type="number" name="playerId" [(ngModel)]="p.playerId" #playerId=ngModel class="form-control" required />
+      </div>
+    
+      
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+        <label class="form-label" for="age">Player Name</label>
+        <input type="text" name="playerName" [(ngModel)]="p.playerName" #playerName=ngModel class="form-control" maxlength="40" required/>
+      </div>
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="contactNumber">Event Id</label>
+          <input type="number" name="eventId" [(ngModel)]="p.eventId" #eventId=ngModel class="form-control" required />
+      </div>
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="email">Event Name</label>
+          <input type="text" name="eventName" [(ngModel)]="p.eventName" #eventName=ngModel class="form-control"
+           maxlength="40" required />
+      </div>
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="gender">Sports Id</label>
+          <input type="number" name="sportsId" [(ngModel)]="p.sportsId" #sportsId=ngModel class="form-control" required />
+      </div>
+
+      <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+          <label class="form-label" for="username">Sports Name</label>
+          <input type="text" name="sportsName" [(ngModel)]="p.sportsName" #sportsName=ngModel class="form-control" maxlength="20" required />
+      </div>
+      
+      <div class="row mb-4">
+      </div>
+
+      <div class="text-center">
+      <button type="button" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!prform.valid" style="background-color: #3b71ca; width: 40%;">Add</button>
+      
+      <h3 *ngIf="message!=null">{{message}}</h3>
+      </div>
+
+      <div class="row mb-4">
+      </div>

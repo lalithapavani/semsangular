@@ -1,0 +1,56 @@
+<div class="row mb-4">
+</div>
+<div class="row mb-4">
+</div>
+<div class="row mb-5">
+</div>
+
+<div *ngIf="invalidLogin" class="alert alert-danger text-center mx-auto" style="width: 20%;">Invalid username or password.</div>
+
+<div class="mx-auto" style="width: 400px;">
+    <h1 class="text-center">Login</h1>
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    
+    
+    <!-- Email input -->
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+      <label class="form-label" for="username">Email address</label>
+      <input type="email" id="username" name="username" [(ngModel)]="credentials.username" class="form-control" />
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4" style="padding-left: 10%; padding-right: 10%;">
+      <label class="form-label" for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="credentials.password"  class="form-control" />
+    </div>
+  
+    <!-- 2 column grid layout for inline styling -->
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        
+      </div>
+  
+      
+    </div>
+  
+    <!-- Submit button -->
+    <div class="text-center">
+    <button type="button" type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!loginForm.valid" style="background-color: #3b71ca; width: 40%;">Sign in</button>
+    
+    <h3 *ngIf="message!=null">{{message}}</h3>
+    </div>
+  
+    <!-- Register buttons -->
+    <!-- <div class="text-center">
+      <p>Not a member? <a routerLink="register">Register</a></p>
+    </div> -->
+    <div class="row mb-4">
+    </div>
+    <div class="row mb-4">
+    </div>
+    <div class="row mb-4">
+    </div>
+    <div class="row mb-5">
+    </div>
+  </form>
+</div>
